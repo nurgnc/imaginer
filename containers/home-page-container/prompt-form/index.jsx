@@ -1,9 +1,11 @@
 "use client"
 import React, { useState } from 'react'
 import styles from './styles.module.scss'
+import { useHomePage } from '../useHomepage'
 
 const PromptForm = () => {
-    const [prompt, setPrompt] = useState('')
+    const { prompt, setPrompt } = useHomePage()
+
     const handlePromptChange = (event) => {
         setPrompt(event.target.value)
     }
