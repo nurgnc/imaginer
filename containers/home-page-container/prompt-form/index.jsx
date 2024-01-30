@@ -4,13 +4,16 @@ import styles from './styles.module.scss'
 import { useHomePage } from '../useHomepage'
 
 const PromptForm = () => {
-    const { prompt, setPrompt } = useHomePage()
+    const { prompt, setPrompt, generateImage } = useHomePage()
 
     const handlePromptChange = (event) => {
         setPrompt(event.target.value)
     }
 
-    const handleFormSubmit = () => { }
+    const handleFormSubmit = (event) => {
+        event.preventDefault()
+        generateImage()
+    }
     return (
         <div className={styles.promptForm}>
             <form className={styles.form} onSubmit={handleFormSubmit}>
