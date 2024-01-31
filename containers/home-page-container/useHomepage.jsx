@@ -5,9 +5,13 @@ const HomePageContext = createContext()
 
 export const HomePageProvider = ({ children }) => {
     const [prompt, setPrompt] = useState('')
+    const [image, setImage] = useState(null)
+    const [error, setError] = useState(null)
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const generateImage = async () => {
         try {
+            setIsSubmitting(true)
             const response = await fetch("/api/generate", {
                 method: "POST",
                 headers: {
@@ -18,11 +22,15 @@ export const HomePageProvider = ({ children }) => {
                 })
             })
 
-            if (!response.ok) throw new Error("Failed to create")
-            const generatedImgae = await response.json()
-        } catch (error) {
+            if (!response.ok) throw new Error(response.statusText || response.status)
+            const generatedImage = await response.json()
+            setImage(generatedImage)
+            setError(null)
+        } catch (e) {
+            setError(e)
             throw new Error("Failed to generate")
         }
+        setIsSubmitting(false)
     }
 
     const changePrompt = (newPrompt) => {
@@ -34,8 +42,11 @@ export const HomePageProvider = ({ children }) => {
         prompt,
         setPrompt,
         generateImage,
-        changePrompt
-    }), [prompt])
+        changePrompt,
+        image,
+        error,
+        isSubmitting
+    }), [prompt, image, error, isSubmitting])
 
     return <HomePageContext.Provider value={data}>
         {children}

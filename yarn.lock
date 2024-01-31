@@ -2290,6 +2290,18 @@ esutils@^2.0.2:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
+express-rate-limit@7, express-rate-limit@^7.1.5:
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/express-rate-limit/-/express-rate-limit-7.1.5.tgz#af4c81143a945ea97f2599d13957440a0ddbfcfe"
+  integrity sha512-/iVogxu7ueadrepw1bS0X0kaRC/U0afwiYRSLg68Ts+p4Dc85Q5QKsOnPS/QUjPMHvOJQtBDrZgvkOzf8ejUYw==
+
+express-slow-down@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/express-slow-down/-/express-slow-down-2.0.1.tgz#60c4515467314675d89c54ec608e2d586aa30f87"
+  integrity sha512-zRogSZhNXJYKDBekhgFfFXGrOngH7Fub7Mx2g8OQ4RUBwSJP/3TVEKMgSGR/WlneT0mJ6NBUnidHhIELGVPe3w==
+  dependencies:
+    express-rate-limit "7"
+
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"

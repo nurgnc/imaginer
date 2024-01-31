@@ -35,6 +35,7 @@ export default async function handler(request, response) {
     }
     const predictions = await startGeneration(prompt)
 
+
     let generatedImage;
 
     while (!generatedImage) {
